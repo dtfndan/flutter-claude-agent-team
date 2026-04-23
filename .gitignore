@@ -1,0 +1,64 @@
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+pubspec.lock.orig
+*.iml
+.idea/
+.vscode/
+
+# Platform-specific build artifacts
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/App.framework
+android/.gradle/
+android/captures/
+android/local.properties
+android/key.properties
+android/**/gradle-wrapper.jar
+android/.idea/
+android/app/release/
+android/app/debug/
+**/*.keystore
+**/*.jks
+
+# Firebase / Secrets
+**/google-services.json
+**/GoogleService-Info.plist
+**/service-account*.json
+**/firebase-adminsdk*.json
+.firebaserc
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+.env
+.env.*
+!.env.example
+
+# Cloud Functions
+functions/node_modules/
+functions/lib/
+functions/.runtimeconfig.json
+
+# Node / JS
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.npm
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Claude Code runtime artifacts (keep the config, ignore logs + agent memory churn)
+.claude/agent-memory/
+.claude/logs/
+production/session-state/archive/
+production/agent-log/

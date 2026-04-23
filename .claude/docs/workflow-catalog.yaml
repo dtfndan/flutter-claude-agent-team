@@ -1,0 +1,180 @@
+# Workflow Catalog — Flutter Claude Agent Team
+# Usado por /help para orientar al usuario sobre el siguiente paso.
+
+phases:
+  - id: onboarding
+    name: "Onboarding"
+    description: "Instalación del entorno y configuración inicial"
+    commands:
+      - /start
+      - /setup-flutter
+    next: ux-ui
+    agents:
+      - onboarding-specialist
+    outputs:
+      - "Entorno verificado (Flutter, Dart, Firebase CLI, Node, Git)"
+      - "Perfil del usuario registrado en PLAN.md"
+
+  - id: ux-ui
+    name: "UX/UI"
+    description: "Diseño de flujos de usuario, pantallas y sistema de diseño"
+    commands:
+      - /design
+      - /design-system
+      - /ux-review
+    next: architecture
+    agents:
+      - ux-lead
+      - ui-designer
+      - accessibility-specialist
+    outputs:
+      - "Mapa de flujos y pantallas"
+      - "Design tokens (colores, tipografía, espaciado)"
+      - "Estados por pantalla (loading, empty, error, success)"
+
+  - id: architecture
+    name: "Arquitectura"
+    description: "Clean Architecture, gestor de estado y dependencias"
+    commands:
+      - /arch
+      - /architecture-decision
+      - /pick-state-management
+      - /deps-update
+    next: backend
+    agents:
+      - software-architect
+      - state-management-specialist
+    outputs:
+      - "Estructura de carpetas feature-first"
+      - "ADR de gestor de estado"
+      - "Lista de dependencias con versiones verificadas"
+
+  - id: backend
+    name: "Backend (Firebase)"
+    description: "Firestore, Auth, Storage, Cloud Functions, reglas de seguridad"
+    commands:
+      - /backend
+      - /firestore-schema
+      - /firestore-rules
+      - /auth-setup
+      - /functions-scaffold
+    next: code
+    agents:
+      - firebase-lead
+      - firestore-specialist
+      - auth-specialist
+      - storage-specialist
+      - functions-specialist
+      - security-rules-specialist
+    outputs:
+      - "Esquema de Firestore documentado"
+      - "Reglas de seguridad validadas en emulador"
+      - "Cloud Functions scaffolded"
+      - "Auth providers configurados"
+
+  - id: code
+    name: "Implementación"
+    description: "Escritura de código Dart/Flutter por features"
+    commands:
+      - /code
+      - /feature-scaffold
+      - /code-review
+    next: qa
+    agents:
+      - flutter-dev-lead
+      - feature-developer
+      - platform-specialist
+    outputs:
+      - "Features implementadas en lib/features/"
+      - "Code review completado"
+
+  - id: qa
+    name: "QA & Testing"
+    description: "Debugging, tests unitarios, widget tests, integración"
+    commands:
+      - /qa
+      - /widget-test
+      - /integration-test
+    next: audit
+    agents:
+      - qa-lead
+      - bug-hunter
+      - test-specialist
+    outputs:
+      - "Tests pasan (unit + widget + integration)"
+      - "flutter analyze sin errores"
+      - "Bugs resueltos"
+
+  - id: audit
+    name: "Auditoría"
+    description: "Revisión de código, dependencias y seguridad"
+    commands:
+      - /audit
+      - /deps-audit
+      - /security-audit
+    next: deploy
+    agents:
+      - auditor
+      - code-auditor
+      - dependency-auditor
+      - security-auditor
+    outputs:
+      - "Reporte de auditoría con severidades"
+      - "Plan de actualización de dependencias"
+      - "Postura de seguridad verificada"
+
+  - id: deploy
+    name: "Deploy & Release"
+    description: "Builds de producción, firma, CI/CD, DNS"
+    commands:
+      - /deploy
+      - /build-android
+      - /build-ios
+      - /ci-setup
+      - /dns-setup
+      - /release-checklist
+    next: growth
+    agents:
+      - devops-lead
+      - release-manager
+      - ci-cd-specialist
+      - signing-specialist
+      - dns-specialist
+    outputs:
+      - "AAB/APK firmado"
+      - "IPA archivado"
+      - "CI/CD configurado"
+      - "Dominio y DNS listos"
+      - "Release checklist completado"
+
+  - id: growth
+    name: "Growth & ASO"
+    description: "Optimización de tiendas, monetización, marketing"
+    commands:
+      - /growth
+      - /aso
+      - /admob
+      - /app-ads-verify
+      - /promo-video
+    next: null
+    agents:
+      - aso-lead
+      - admob-specialist
+      - app-ads-specialist
+      - video-marketing-specialist
+    outputs:
+      - "Fichas de tienda optimizadas"
+      - "AdMob integrado con consent"
+      - "app-ads.txt verificado"
+      - "Guión de video promocional"
+
+# Comandos transversales (disponibles en cualquier fase)
+utility_commands:
+  - command: /help
+    description: "Muestra fase actual y sugiere siguiente paso"
+  - command: /deps-update
+    description: "Actualiza dependencias a última versión"
+  - command: /code-review
+    description: "Revisa código contra estándares"
+  - command: /audit
+    description: "Auditoría técnica completa"

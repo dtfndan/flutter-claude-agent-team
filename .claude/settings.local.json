@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Read(//tmp/**)",
+      "Read(//tmp/reference-repo/**)",
+      "Bash(chmod +x \"C:/Users/roger/OneDrive/Desktop/flutter-claude-agent-team/.claude/hooks/\"*.sh \"C:/Users/roger/OneDrive/Desktop/flutter-claude-agent-team/.claude/statusline.sh\")"
+    ]
+  }
+}

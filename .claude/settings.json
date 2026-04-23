@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "statusLine": {
+    "type": "command",
+    "command": "bash .claude/statusline.sh"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(flutter --version*)",
+      "Bash(flutter doctor*)",
+      "Bash(flutter analyze*)",
+      "Bash(flutter pub get*)",
+      "Bash(flutter pub outdated*)",
+      "Bash(flutter pub deps*)",
+      "Bash(flutter test*)",
+      "Bash(flutter build apk*)",
+      "Bash(flutter build appbundle*)",
+      "Bash(flutter build ios*)",
+      "Bash(flutter clean*)",
+      "Bash(dart --version*)",
+      "Bash(dart analyze*)",
+      "Bash(dart format*)",
+      "Bash(dart pub*)",
+      "Bash(dart fix*)",
+      "Bash(firebase --version*)",
+      "Bash(firebase projects:list*)",
+      "Bash(firebase use*)",
+      "Bash(firebase deploy --only firestore:rules*)",
+      "Bash(firebase deploy --only storage*)",
+      "Bash(firebase functions:config:get*)",
+      "Bash(firebase emulators:start*)",
+      "Bash(firebase emulators:exec*)",
+      "Bash(npm --version*)",
+      "Bash(npm outdated*)",
+      "Bash(npm run lint*)",
+      "Bash(npm run test*)",
+      "Bash(node --version*)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git branch*)",
+      "Bash(git rev-parse*)",
+      "Bash(git show*)",
+      "Bash(ls *)",
+      "Bash(dir *)",
+      "Bash(pwd)",
+      "Bash(cat pubspec.yaml)",
+      "Bash(cat pubspec.lock)",
+      "Bash(cat firebase.json)",
+      "Bash(curl -s https://pub.dev/packages/*)",
+      "Bash(curl -s https://registry.npmjs.org/*)",
+      "WebFetch(domain:pub.dev)",
+      "WebFetch(domain:docs.flutter.dev)",
+      "WebFetch(domain:firebase.google.com)",
+      "WebFetch(domain:developers.google.com)",
+      "WebFetch(domain:developer.android.com)",
+      "WebFetch(domain:developer.apple.com)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "Bash(sudo *)",
+      "Bash(chmod 777*)",
+      "Bash(*>.env*)",
+      "Bash(cat *.env*)",
+      "Bash(type *.env*)",
+      "Bash(cat *service-account*.json)",
+      "Bash(cat *firebase-adminsdk*.json)",
+      "Bash(cat *google-services.json)",
+      "Bash(cat *GoogleService-Info.plist)",
+      "Bash(cat android/key.properties)",
+      "Bash(cat android/app/*.keystore)",
+      "Bash(cat android/app/*.jks)",
+      "Bash(firebase deploy --only hosting:production*)",
+      "Bash(firebase deploy --project production*)",
+      "Read(**/.env*)",
+      "Read(**/service-account*.json)",
+      "Read(**/firebase-adminsdk*.json)",
+      "Read(**/google-services.json)",
+      "Read(**/GoogleService-Info.plist)",
+      "Read(**/*.keystore)",
+      "Read(**/*.jks)",
+      "Read(android/key.properties)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/session-start.sh",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/detect-gaps.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/validate-commit.sh",
+            "timeout": 15
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/validate-push.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/validate-flutter-deps.sh",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/validate-skill-change.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/notify.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/pre-compact.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/post-compact.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/session-stop.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/log-agent.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/log-agent-stop.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
