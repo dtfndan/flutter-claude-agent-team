@@ -1,6 +1,6 @@
 # Reglas de coordinación entre agentes
 
-Cómo se pasan el testigo los 31 agentes para que el proyecto avance sin
+Cómo se pasan el testigo los 36 agentes para que el proyecto avance sin
 conflictos.
 
 ## Jerarquía
@@ -15,6 +15,8 @@ conflictos.
     `storage-specialist`, `functions-specialist`,
     `security-rules-specialist`
   - `flutter-dev-lead` → `feature-developer`, `platform-specialist`
+  - `flame-lead` → `flame-developer`, `flame-physics-specialist`,
+    `flame-audio-specialist` _(solo cuando el proyecto incluye un juego)_
   - `qa-lead` → `test-specialist`, `bug-hunter`
   - `auditor` → `code-auditor`, `security-auditor`, `dependency-auditor`
   - `devops-lead` → `ci-cd-specialist`, `signing-specialist`,
@@ -32,6 +34,7 @@ conflictos.
 ## Arquitectura       ← software-architect
 ## Backend            ← firebase-lead
 ## Implementación     ← flutter-dev-lead
+## Juego              ← flame-lead (solo si el proyecto tiene juego)
 ## QA                 ← qa-lead
 ## Auditoría          ← auditor
 ## Deploy             ← devops-lead
@@ -57,6 +60,19 @@ conflictos.
 6. **`auditor`** revisa antes de cualquier release.
 7. **`devops-lead`** prepara build/firma/release.
 8. **`aso-lead`** actualiza ficha y monetización.
+
+## Flujo canónico de un juego nuevo (Flame)
+
+1. **`ux-lead`** define flujos de juego: menú, gameplay, pausa, game over, onboarding.
+2. **`flame-lead`** diseña arquitectura en `/game`: tipo, escenas, paquetes, física.
+3. **`software-architect`** valida integración con la app (routing, estado compartido).
+4. **`firebase-lead`** define backend si aplica: leaderboard (Firestore), auth anónimo, funciones de puntuación.
+5. **`flame-lead`** delega scaffold a `flame-developer` vía `/game-scaffold`.
+6. **`flame-developer`** implementa componentes vía `/flame-component`.
+7. **`flame-physics-specialist`** interviene si se usa Forge2D o colisiones complejas.
+8. **`flame-audio-specialist`** interviene cuando hay BGM o SFX.
+9. **`qa-lead`** escribe tests de componentes con `flame_test`.
+10. **`auditor`** → **`devops-lead`** → **`aso-lead`**: igual que el flujo de app.
 
 ## Reglas duras
 

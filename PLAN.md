@@ -85,6 +85,38 @@ _Vacío. Ejecuta `/code` o `/feature-scaffold` para empezar._
 
 ---
 
+## Juego
+<!-- Responsable: flame-lead (delega a flame-developer, flame-physics-specialist, flame-audio-specialist) -->
+<!-- Solo aplica si el proyecto incluye un juego con Flame. Si es una app pura, ignorar esta sección. -->
+
+_Vacío. Ejecuta `/game` para diseñar la arquitectura del juego._
+
+### Tipo de juego
+<!-- Género, perspectiva, complejidad -->
+
+### Paquetes Flame
+<!-- flame, flame_audio, flame_forge2d, flame_tiled, etc. con versiones -->
+
+### Arquitectura
+<!-- Árbol de lib/game/, FlameGame principal, Worlds, escenas -->
+
+### Escenas
+<!-- Lista numerada de escenas/niveles planificados -->
+
+### Física
+<!-- Sistema: nativo (HasCollisionDetection) / Forge2D — motivo -->
+
+### Audio
+<!-- BGM: sí/no | SFX: sí/no | descripción -->
+
+### Componentes implementados
+<!-- Lista de /flame-component creados con fecha -->
+
+### Monetización en el juego
+<!-- Rewarded ads entre partidas, skins, IAP -->
+
+---
+
 ## QA
 <!-- Responsable: qa-lead (delega a test-specialist, bug-hunter) -->
 

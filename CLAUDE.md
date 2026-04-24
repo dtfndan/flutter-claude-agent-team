@@ -13,6 +13,7 @@ arquitectura, backend, implementación, QA, auditoría, deploy, DNS, AdMob,
 - **SDK**: Flutter (stable más reciente) + Dart
 - **Estado**: [ELEGIR: Riverpod / Bloc] — ver `docs/architecture/adr-*.md`
 - **Backend**: Firebase (Auth, Firestore, Storage, Functions, App Check)
+- **Motor de juegos** _(opcional)_: Flame — activa el pipeline de juego con `/game`
 - **Monetización**: Google AdMob + `app-ads.txt` en dominio raíz
 - **CI/CD**: [ELEGIR: GitHub Actions / Codemagic]
 - **Lenguaje de servidor**: Cloud Functions en TypeScript/Node.js (LTS)
@@ -44,8 +45,8 @@ arquitectura, backend, implementación, QA, auditoría, deploy, DNS, AdMob,
 ## Archivos de estado vivos
 
 - **`PLAN.md`** — documento donde los agentes registran arquitectura, esquemas,
-  decisiones y pendientes (secciones fijas: UX/UI, Arquitectura, Backend, QA,
-  Auditoría, Deploy, Growth).
+  decisiones y pendientes (secciones fijas: UX/UI, Arquitectura, Backend,
+  Implementación, Juego _(si aplica)_, QA, Auditoría, Deploy, Growth).
 - **`STATE.md`** — fase actual del proyecto. Se actualiza al iniciar/terminar
   cada skill.
 - **`production/session-state/active.md`** — estado vivo entre sesiones
@@ -77,10 +78,11 @@ Escribe `/` en Claude Code para ver todas las skills instaladas. Flujo recomenda
 4. `/arch` → `/architecture-decision` → `/pick-state-management` — arquitectura
 5. `/backend` → `/firestore-schema` → `/firestore-rules` → `/auth-setup` → `/functions-scaffold` — Firebase
 6. `/code` → `/feature-scaffold` → `/code-review` — implementación
-7. `/qa` → `/widget-test` → `/integration-test` — testing
-8. `/audit` → `/deps-audit` → `/security-audit` — auditoría
-9. `/deploy` → `/build-android` → `/build-ios` → `/ci-setup` → `/dns-setup` → `/release-checklist` — release
-10. `/growth` → `/aso` → `/admob` → `/app-ads-verify` → `/promo-video` — growth
+7. `/game` → `/game-scaffold` → `/flame-component` — juego con Flame _(opcional)_
+8. `/qa` → `/widget-test` → `/integration-test` — testing
+9. `/audit` → `/deps-audit` → `/security-audit` — auditoría
+10. `/deploy` → `/build-android` → `/build-ios` → `/ci-setup` → `/dns-setup` → `/release-checklist` — release
+11. `/growth` → `/aso` → `/admob` → `/app-ads-verify` → `/promo-video` — growth
 
 `/help` te dice en qué paso estás y qué hacer a continuación.
 
