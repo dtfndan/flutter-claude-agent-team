@@ -314,6 +314,7 @@ Cada agente sigue el protocolo:
 | `validate-push.sh` | PreToolUse (Bash) | Avisa al hacer push a `main`/`master`; bloquea force push |
 | `validate-flutter-deps.sh` | PostToolUse (Write/Edit) | Advierte si se hardcodean versiones en `pubspec.yaml` |
 | `validate-skill-change.sh` | PostToolUse (Write/Edit) | Recuerda testear comandos editados |
+| `verify-dart.sh`           | PostToolUse (Write/Edit) | Corre `dart analyze` en el archivo Dart recién modificado; reporta errores y warnings para que Claude se autocorrija |
 | `notify.sh` | Notification | Toast en Windows / notify en Linux/macOS |
 | `pre-compact.sh` | Antes de compactar | Guarda estado en `active.md` |
 | `post-compact.sh` | Después de compactar | Recuerda a Claude restaurar contexto |
