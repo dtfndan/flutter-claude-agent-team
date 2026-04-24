@@ -72,7 +72,8 @@ Cada tarea sigue: **Pregunta → Opciones → Decisión → Borrador → Aprobac
 
 Escribe `/` en Claude Code para ver todas las skills instaladas. Flujo recomendado:
 
-1. `/start` — onboarding y detección de entorno
+1. `/start` — onboarding y detección de entorno (proyecto nuevo)
+1b. `/adopt` — adoptar proyecto Flutter existente (escanea, diagnostica y puebla PLAN.md)
 2. `/setup-flutter` — verificar/actualizar SDK Flutter + Dart
 3. `/design` → `/design-system` → `/ux-review` — UX/UI
 4. `/arch` → `/architecture-decision` → `/pick-state-management` — arquitectura
