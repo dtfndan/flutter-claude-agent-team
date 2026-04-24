@@ -235,7 +235,7 @@ Es un **template**, no un framework cerrado:
 
 - Añade/quita agentes (`lib/features/<tu-dominio>/` → crea un `<dominio>-specialist.md`)
 - Edita los prompts de los agentes
-- Crea skills nuevos copiando una carpeta `.claude/skills/<ejemplo>/`
+- Crea comandos nuevos copiando un archivo `.claude/commands/<ejemplo>.md`
 - Añade rules path-scoped a tu estructura
 - Ajusta los hooks de validación
 - Cambia la intensidad de review: edita `production/review-mode.txt`

@@ -12,7 +12,7 @@ vez con `/setup-flutter` y se mantiene a lo largo del ciclo de vida.
 │
 ├── .claude/                      # Configuración del estudio
 │   ├── agents/                   # 31 agentes especialistas (.md con frontmatter)
-│   ├── skills/                   # Slash commands (.md con frontmatter)
+│   ├── commands/                 # Slash commands (.md con frontmatter)
 │   ├── rules/                    # Reglas path-scoped (android-config, dart-code, etc.)
 │   ├── hooks/                    # Shell scripts disparados por eventos
 │   ├── docs/                     # Docs importados por CLAUDE.md (este archivo incluido)

@@ -90,7 +90,7 @@ Este es un **template modificable**:
 
 - Añade/elimina agentes en `.claude/agents/`
 - Ajusta los prompts de los agentes
-- Modifica o añade skills en `.claude/skills/`
+- Modifica o añade comandos en `.claude/commands/`
 - Añade reglas path-scoped en `.claude/rules/`
 - Ajusta hooks en `.claude/hooks/`
 - Edita permisos en `.claude/settings.json`
